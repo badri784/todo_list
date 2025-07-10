@@ -1,6 +1,6 @@
 import 'package:intl/intl.dart';
 
-var dateformat = DateFormat.yMd();
+final dateformat = DateFormat.yMd();
 
 class Model {
   final String titel;

@@ -14,8 +14,38 @@ class _HomeState extends State<Home> {
   final dateformat = DateFormat.yMd();
 
   final List<Model> _model = [
-    Model(titel: "", body: "body", dateTime: dateformat),
+    Model(
+      titel: "work",
+      body: "Finish the weekly report and send it to the manager before 5 PM.",
+      dateTime: DateTime.now(),
+    ),
+    Model(
+      titel: "for fun",
+      body: "Watch an episode of your favorite series or play a quick game.",
+      dateTime: DateTime.now(),
+    ),
+    Model(
+      titel: "lappppp",
+      body: "Clean the laptop screen and check for software updates.",
+      dateTime: DateTime.now(),
+    ),
+    Model(
+      titel: "lesure",
+      body: "Go out for a walk or relax with a book at the café.",
+      dateTime: DateTime.now(),
+    ),
+    Model(
+      titel: "eduction",
+      body: "Complete the Flutter state management module today.",
+      dateTime: DateTime.now(),
+    ),
   ];
+  TextEditingController titlecontroler = TextEditingController();
+  @override
+  void dispose() {
+    super.dispose();
+    titlecontroler.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +57,6 @@ class _HomeState extends State<Home> {
       ),
       floatingActionButton: FloatingActionButton(
         tooltip: 'Add ToDo',
-
         onPressed: () {
           showModalBottomSheet(
             isScrollControlled: true,
@@ -38,7 +67,19 @@ class _HomeState extends State<Home> {
                 margin: const EdgeInsets.all(13),
                 width: double.infinity,
                 height: 750,
-                child: const Column(children: [Text("0000")]),
+                child: Column(
+                  children: [
+                    TextField(
+                      controller: titlecontroler,
+                      textAlign: TextAlign.center,
+                      textInputAction: TextInputAction.done,
+                      decoration: const InputDecoration(
+                        labelText: "Add Title",
+                        prefixText: 'Title:',
+                      ),
+                    ),
+                  ],
+                ),
               );
             },
           );
