@@ -1,12 +1,16 @@
 import 'package:intl/intl.dart';
 
-final dateformat = DateFormat.yMd();
+final DateFormat formateddate = DateFormat.yMd();
 
 class Model {
   final String titel;
   final String body;
-  final DateTime dateTime;
-  Model({required this.titel, required this.body, required this.dateTime});
+  final DateTime date;
+  Model({required this.titel, required this.body, required this.date});
 
-  List<Model> model = [];
+  String get formattedDate {
+    return formateddate.format(date);
+  }
 }
+
+List<Model> model = [];
