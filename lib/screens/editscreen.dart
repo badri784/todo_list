@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../model/model.dart';
-import 'package:intl/intl.dart';
 
 class EditScreen extends StatefulWidget {
   final Model todo;
@@ -15,7 +14,7 @@ class EditScreen extends StatefulWidget {
 class _EditScreenState extends State<EditScreen> {
   late TextEditingController _titleController;
   late TextEditingController _bodyController;
-  final _dateFormat = DateFormat.yMd();
+  // final _dateFormat = DateFormat.yMd();
 
   @override
   void initState() {
@@ -50,7 +49,7 @@ class _EditScreenState extends State<EditScreen> {
             const SizedBox(height: 20),
             ElevatedButton.icon(
               onPressed: () {
-                final updated = Model(
+                final Model updated = Model(
                   titel: _titleController.text.trim(),
                   body: _bodyController.text.trim(),
                   date: DateTime.now(),

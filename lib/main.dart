@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import '../screens/home.dart';
 
@@ -13,8 +15,23 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          brightness: Brightness.dark,
-          seedColor: const Color.fromARGB(255, 44, 5, 184),
+          brightness: Brightness.light,
+          seedColor: const Color.fromARGB(255, 176, 174, 180),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+            textStyle: MaterialStateProperty.all(const TextStyle(fontSize: 18)),
+            iconSize: MaterialStateProperty.all(24),
+            iconColor: MaterialStateProperty.all(
+              Theme.of(context).colorScheme.surface,
+            ),
+            backgroundColor: MaterialStateProperty.all(
+              Theme.of(context).colorScheme.primary,
+            ),
+            foregroundColor: MaterialStateProperty.all(
+              Theme.of(context).colorScheme.surface,
+            ),
+          ),
         ),
       ),
       home: const Home(),
