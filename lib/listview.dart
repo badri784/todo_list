@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_list/screens/edit_screen.dart';
 import 'package:todo_list/screens/open_todo.dart';
-import '../model/model.dart';
+import 'model/model.dart';
 import 'package:intl/intl.dart';
 
 class Listview extends StatefulWidget {

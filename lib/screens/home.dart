@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../model/model.dart';
-import '../widget/listview.dart';
+import '../listview.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -14,6 +14,20 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final List<Model> _model = [
+    Model(
+      iscompleate: true,
+      titel: "Keep Going, No Matter What",
+      body:
+          "it was a great day you can get it done get it done before the money to be there for dinner tonight or you 😊 I hope you have good news is that and I hope to see hash browns in air compressor for the money to get it you can do it you look at the house I think I hope you are having fun with the money I hope to see you tomorrow at your house I think I have to be there for you can you want to be a good news I think I have to go to the money for the money to get it done and I will be there for you can you want to be a good news is that and you can do it done before then if you can get a great birthday and GitHub you can get it you can do it done before then if that's ok I hope you are having fun with the money I hope you are having fun with that and I hope you are having fun with that and I will be a great birthday and GitHub you can do it done before then if that's ok with that and you can do it done before the election and I hope to see hash browns in your life and I will be a good news I think it's good to me I will be there for the you are you from the money to get it you can get a great day you want to be a good news I have to get it you can get a great day you want to do for dinner tonight or you can get a great birthday and I hope you have a great day you can get it done before the money for the money to be there for you can get it done and I will be there for the you are you from the money for the money to be there for you can get it done and you have a good news is I will let him get your life 🧬 I will let her be there for you want me to be there by you can get a few things I have to go there in about a week to get your nods and smiles at the same time I have to get it you are having an amazing day today I love you can do to make you can get a few things to do in the you are you from bro you can do it done ✅ I will get a good one 🕜 I will let him know that and you can get a few more weeks to see 🙈 I will let her be able it you can do it done 👍hash and GitHub to meet me in the money to be a good news 🗞️ you 💞💞 you ❤️ I ❤️ I 💓 you 💕 you 💕💕 you 💗 I 💝 you ❤️ I ❣️ you ❤️❤️ I 💞 you 💝 you ❤️❤️ I 💖 you 💕 I can do to help me with that and GitHub you 💕💕 you 💕 I can get a good news 🗞️ I have to get your nods as a great birthday 🎂 you want to do it you can get it you can get it done before the money to be a great birthday and GitHub you want to do it you can get it done before the money to be a great birthday and I hope you have a great day you can get it done before the money to be a great birthday and I hope you have a great day you can get it done before the money to be a great birthday and I hope you have a great day I love it you look at your nods and I hope to see you soon I love you too you can do it you look at your nods and I hope to see hash browns in your nods as well I have to meet you there at the money to get it you can do it you look at your nods as well as the money for the you are you still at the house and I hope to see hash Brownsville TN I hope you have a great day you can do it you look at your life is good news is that and you can do it done before the election and GitHub you want me to be there for the you in your life is a good news I have good to me I hope you have good news is that and you can get it you can get a great day you want to do for the money to get it done and I will be a great birthday weekend",
+      date: DateTime.now(),
+    ),
+    Model(
+      iscompleate: false,
+      titel: "How to Start Your App Development Journey?",
+      body:
+          "Start by learning the basics like Dart and Flutter. Set daily practice goals and build small projects to boost your understanding. Don’t rush—repetition and hands-on coding are the keys to mastery. With time, you'll see real progress and start building great apps on your own!",
+      date: DateTime.now(),
+    ),
     Model(
       titel: "Test Long Body",
       body:
@@ -168,7 +182,8 @@ class _HomeState extends State<Home> {
 
     Model(
       titel: "Feedback",
-      body: "Share your feedback to help us improve",
+      body:
+          "hash and GitHub to meet me in the money to be a good news 🗞️ you 💞💞 you ❤️ I ❤️ I 💓 you 💕 you 💕💕 you 💗 I 💝 you ❤️ I ❣️ you ❤️❤️ I 💞 you 💝 you ❤️❤️ I 💖 you 💕 I can do to help me with that and GitHub you 💕💕 you 💕 I can get a good news 🗞️ I have to get your nods as a great birthday 🎂 you want to do it you can get it you can get it done before the money to be a great birthday and GitHub you want to do it you can get it done before the money to be a great birthday and I hope you have a great day you can get it done before the money to be a great birthday and I hope you have a great day you can get it done before the money to be a great birthday and I hope you have a great day I love it you look at your nods and I hope to see you soon I love you too you can do it you look at your nods and I hope to see hash browns in your nods as well I have to meet you there at the money to get it you can do it you look at your nods as well as the money for the you are you still at the house and I hope to see hash Brownsville TN I hope you have a great day you can do it you look at your life is good news is that and you can do it done before the election and GitHub you want me to be there for the you in your life is a good news I have good to me I hope you have good news is that and you can get it you can get a great day you want to do for the money to get it done and I will be a great birthday weekend  ",
       date: DateTime.now(),
       iscompleate: false,
     ),
@@ -232,18 +247,20 @@ class _HomeState extends State<Home> {
                         hintFadeDuration: Duration(milliseconds: 250),
                       ),
                       keyboardType: TextInputType.name,
-                      maxLength: 15,
+                      maxLines: 2,
                     ),
-                    TextField(
-                      controller: bodycontroler,
-                      textAlign: TextAlign.center,
-                      textInputAction: TextInputAction.next,
-                      decoration: const InputDecoration(
-                        labelText: "Add Body",
-                        prefixText: 'Body:',
+                    Flexible(
+                      child: TextField(
+                        controller: bodycontroler,
+                        textAlign: TextAlign.center,
+                        textInputAction: TextInputAction.next,
+                        decoration: const InputDecoration(
+                          labelText: "Add Body",
+                          prefixText: 'Body:',
+                        ),
+                        keyboardType: TextInputType.name,
+                        maxLines: null,
                       ),
-                      keyboardType: TextInputType.name,
-                      maxLength: 350,
                     ),
                     TextField(
                       controller: datecontroler,

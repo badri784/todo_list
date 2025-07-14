@@ -51,17 +51,21 @@ class _EditSecreenState extends State<EditSecreen> {
             controller: _titleController,
             textAlign: TextAlign.center,
             keyboardType: TextInputType.name,
-            maxLength: 50,
+            maxLines: 2,
           ),
-          TextField(
-            decoration: const InputDecoration(
-              prefixText: '  body :',
-              label: Text("  Body"),
+          SingleChildScrollView(
+            child: TextField(
+              decoration: const InputDecoration(
+                prefixText: '  body :',
+                label: Text("  Body"),
+              ),
+              controller: _bodyController,
+              textAlign: TextAlign.center,
+              keyboardType: TextInputType.name,
+              maxLines: null,
             ),
-            controller: _bodyController,
-            textAlign: TextAlign.center,
-            keyboardType: TextInputType.name,
           ),
+
           const SizedBox(height: 22),
           ElevatedButton(
             onPressed: () {
