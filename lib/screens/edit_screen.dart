@@ -69,15 +69,25 @@ class _EditSecreenState extends State<EditSecreen> {
                 titel: _titleController.toString().trim(),
                 body: _bodyController.toString().trim(),
                 date: DateTime.now(),
+                iscompleate: false,
               );
               widget.onsave(updated);
               Navigator.of(context).pop();
             },
-            child: const Padding(
-              padding: EdgeInsets.only(left: 30, right: 30),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 30, right: 30),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [Icon(Icons.save), SizedBox(width: 7), Text("Save")],
+                children: [
+                  const Icon(Icons.save),
+                  const SizedBox(width: 7),
+                  Text(
+                    "Save Changes",
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.surface,
+                    ),
+                  ),
+                ],
               ),
             ),
           ),

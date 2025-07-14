@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
-            textStyle: MaterialStateProperty.all(const TextStyle(fontSize: 18)),
+            textStyle: MaterialStateProperty.all(const TextStyle(fontSize: 15)),
             iconSize: MaterialStateProperty.all(24),
             iconColor: MaterialStateProperty.all(
               Theme.of(context).colorScheme.surface,

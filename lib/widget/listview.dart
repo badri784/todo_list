@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:todo_list/screens/edit_screen.dart';
+import 'package:todo_list/screens/open_todo.dart';
 import '../model/model.dart';
 import 'package:intl/intl.dart';
 
@@ -49,11 +49,33 @@ class _ListviewState extends State<Listview> {
                     (direction) => setState(() {
                       widget.todo.removeAt(index);
                     }),
+
                 child: ListTile(
+                  leading: Checkbox(
+                    value: widget.todo[index].iscompleate,
+                    onChanged: (value) {
+                      setState(() {
+                        widget.todo[index].iscompleate = value!;
+                      });
+                    },
+                  ),
                   title: Text(" Title: ${widget.todo[index].titel}"),
-                  subtitle: Text(" Body: ${widget.todo[index].body}"),
+                  subtitle: Text(
+                    " Body: ${widget.todo[index].body}",
+                    softWrap: true,
+                    maxLines: 2,
+                    textScaleFactor: 0.8,
+                  ),
                   trailing: Text(" Date: ${widget.todo[index].formattedDate}"),
-                  onTap: () async {
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder:
+                            (context) => OpenTodo(opentodo: widget.todo[index]),
+                      ),
+                    );
+                  },
+                  onLongPress: () async {
                     await Navigator.of(context).push(
                       MaterialPageRoute(
                         builder:
@@ -68,29 +90,14 @@ class _ListviewState extends State<Listview> {
                       ),
                     );
                   },
-                  // () async
-                  // {
-
-                  // await Navigator.of(context).push(
-                  //     MaterialPageRoute(
-                  //       builder:
-                  //           (_) => EditScreen(
-                  // todo: widget.todo[index],
-                  //             onSave: (Model updated) {
-                  //               setState(() => widget.todo[index] = updated);
-                  //             },
-                  //           ),
-                  //     ),
+                  // onLongPress: () {
+                  //   Clipboard.setData(
+                  //     ClipboardData(text: widget.todo[index].body),
+                  //   );
+                  //   ScaffoldMessenger.of(context).showSnackBar(
+                  //     const SnackBar(content: Text("Todo body copied!")),
                   //   );
                   // },
-                  onLongPress: () {
-                    Clipboard.setData(
-                      ClipboardData(text: widget.todo[index].body),
-                    );
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text("Todo body copied!")),
-                    );
-                  },
                 ),
               ),
             );

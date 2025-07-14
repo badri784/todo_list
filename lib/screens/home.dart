@@ -15,54 +15,162 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   final List<Model> _model = [
     Model(
+      titel: "Test Long Body",
+      body:
+          "This is a very long body text for a todo item that is intended to test how the UI handles wrapping or overflowing content inside a ListTile. It should either wrap to the next line or be truncated appropriately based on the design.",
+      date: DateTime.now(),
+      iscompleate: false,
+    ),
+    Model(
+      titel: "UI Check",
+      body:
+          "Make sure that long descriptions like this one, which might go on for several lines and include detailed instructions, are displayed correctly in both light and dark themes, and that the overall layout remains consistent and readable across different screen sizes.",
+      date: DateTime.now(),
+      iscompleate: false,
+    ),
+    Model(
+      titel: "Responsive Test",
+      body:
+          "Sometimes users might enter extremely long notes or descriptions for their todos. This test checks how the application responds to these edge cases, ensuring that the text either wraps correctly or gets truncated with ellipsis if necessary.",
+      date: DateTime.now(),
+      iscompleate: false,
+    ),
+    Model(
+      titel: "Very Long Body Text for Testing",
+      body:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan. Arcu non sodales neque sodales ut etiam sit amet nisl purus in mollis nunc sed id semper risus in hendrerit gravida rutrum quisque non tellus orci.",
+      date: DateTime.now(),
+      iscompleate: false,
+    ),
+    Model(
+      titel: "Edge Case Text",
+      body:
+          "Edge case: This is a todo with a body that simulates a user copy-pasting an entire paragraph or email body into the app. It's important to know how such input affects performance, layout, and usability of the app.",
+      date: DateTime.now(),
+      iscompleate: false,
+    ),
+
+    Model(
       titel: "Welcome",
       body: "This is a ToDo List App",
       date: DateTime.now(),
+      iscompleate: false,
     ),
     Model(
       titel: "Add ToDo",
       body: "Click the + button to add a new ToDo",
       date: DateTime.now(),
+      iscompleate: false,
     ),
     Model(
       titel: "Delete ToDo",
       body: "Swipe left to delete a ToDo",
       date: DateTime.now(),
+      iscompleate: false,
     ),
     Model(
       titel: "Edit ToDo",
       body: "Tap on a ToDo to edit it",
       date: DateTime.now(),
+      iscompleate: false,
     ),
     Model(
       titel: "Sort ToDo",
       body: "Use the sort button to arrange ToDos",
       date: DateTime.now(),
+      iscompleate: false,
     ),
     Model(
       titel: "Filter ToDo",
       body: "Use the filter button to view specific ToDos",
       date: DateTime.now(),
+      iscompleate: false,
     ),
     Model(
       titel: "Search ToDo",
       body: "Use the search bar to find a ToDo",
       date: DateTime.now(),
+      iscompleate: false,
     ),
     Model(
       titel: "Settings",
       body: "Adjust app settings in the settings menu",
       date: DateTime.now(),
+      iscompleate: false,
     ),
     Model(
       titel: "Help",
       body: "Access help and support in the help section",
       date: DateTime.now(),
+      iscompleate: false,
     ),
     Model(
       titel: "Feedback",
       body: "Provide feedback to improve the app",
       date: DateTime.now(),
+      iscompleate: false,
+    ),
+    Model(
+      titel: "About",
+      body: "Learn more about the app in the about section",
+      date: DateTime.now(),
+      iscompleate: false,
+    ),
+    Model(
+      titel: "Version",
+      body: "Check the app version in the settings",
+      date: DateTime.now(),
+      iscompleate: false,
+    ),
+    Model(
+      titel: "Privacy Policy",
+      body: "Read the privacy policy in the settings",
+      date: DateTime.now(),
+      iscompleate: false,
+    ),
+    Model(
+      titel: "Terms of Service",
+      body: "Review the terms of service in the settings",
+      date: DateTime.now(),
+      iscompleate: false,
+    ),
+    Model(
+      titel: "Notifications",
+      body: "Manage notifications in the settings",
+      date: DateTime.now(),
+      iscompleate: false,
+    ),
+    Model(
+      titel: "Updates",
+      body: "Check for app updates in the settings",
+      date: DateTime.now(),
+      iscompleate: false,
+    ),
+    Model(
+      titel: "Support",
+      body: "Contact support for assistance",
+      date: DateTime.now(),
+      iscompleate: false,
+    ),
+
+    Model(
+      titel: "Logout",
+      body: "Log out of your account in the settings",
+      date: DateTime.now(),
+      iscompleate: false,
+    ),
+    Model(
+      titel: "Exit",
+      body: "Close the app from the settings menu",
+      date: DateTime.now(),
+      iscompleate: false,
+    ),
+
+    Model(
+      titel: "Feedback",
+      body: "Share your feedback to help us improve",
+      date: DateTime.now(),
+      iscompleate: false,
     ),
   ];
   final dateformat = DateFormat.yMd();
@@ -120,6 +228,8 @@ class _HomeState extends State<Home> {
                       decoration: const InputDecoration(
                         labelText: "Add Title",
                         prefixText: 'Title:',
+                        hintText: "",
+                        hintFadeDuration: Duration(milliseconds: 250),
                       ),
                       keyboardType: TextInputType.name,
                       maxLength: 15,
@@ -143,6 +253,7 @@ class _HomeState extends State<Home> {
                       decoration: const InputDecoration(
                         labelText: "Add Date",
                         prefixText: 'Date:',
+                        hintText: "Enter date",
                       ),
 
                       readOnly: true,
@@ -193,6 +304,7 @@ class _HomeState extends State<Home> {
                                   titel: titlecontroler.text,
                                   body: bodycontroler.text,
                                   date: DateTime.now(),
+                                  iscompleate: false,
                                 ),
                               );
                             });
