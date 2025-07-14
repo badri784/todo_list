@@ -18,21 +18,23 @@ class _ListviewState extends State<Listview> {
   @override
   Widget build(BuildContext context) {
     return widget.todo.isEmpty
-        ? Container(
-          margin: const EdgeInsets.all(7),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset('image/data.png'),
-              const SizedBox(height: 7),
-              Text(
-                "Tap On The Bottom To Add Todo's !",
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.onSurface,
-                  fontSize: 22,
+        ? SingleChildScrollView(
+          child: Container(
+            margin: const EdgeInsets.all(7),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset('image/data.png'),
+                const SizedBox(height: 7),
+                Text(
+                  "Tap On The Bottom To Add Todo's !",
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.onSurface,
+                    fontSize: 22,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         )
         : ListView.builder(
@@ -59,12 +61,16 @@ class _ListviewState extends State<Listview> {
                       });
                     },
                   ),
-                  title: Text(" Title: ${widget.todo[index].titel}"),
+                  title: Text(
+                    " Title: ${widget.todo[index].titel}",
+                    maxLines: 2,
+                    textAlign: TextAlign.start,
+                  ),
                   subtitle: Text(
                     " Body: ${widget.todo[index].body}",
                     softWrap: true,
                     maxLines: 2,
-                    textScaleFactor: 0.8,
+                    textScaleFactor: 0.9,
                   ),
                   trailing: Text(" Date: ${widget.todo[index].formattedDate}"),
                   onTap: () {
@@ -90,14 +96,6 @@ class _ListviewState extends State<Listview> {
                       ),
                     );
                   },
-                  // onLongPress: () {
-                  //   Clipboard.setData(
-                  //     ClipboardData(text: widget.todo[index].body),
-                  //   );
-                  //   ScaffoldMessenger.of(context).showSnackBar(
-                  //     const SnackBar(content: Text("Todo body copied!")),
-                  //   );
-                  // },
                 ),
               ),
             );

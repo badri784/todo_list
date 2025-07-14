@@ -41,61 +41,61 @@ class _EditSecreenState extends State<EditSecreen> {
                 : Theme.of(context).colorScheme.primary,
         centerTitle: true,
       ),
-      body: Column(
-        children: [
-          TextField(
-            decoration: const InputDecoration(
-              prefixText: '  Title :',
-              label: Text("  Title"),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            TextField(
+              decoration: const InputDecoration(
+                prefixText: '  Title :',
+                label: Text("  Title"),
+              ),
+              controller: _titleController,
+              textAlign: TextAlign.justify,
+              keyboardType: TextInputType.name,
+              maxLines: 2,
             ),
-            controller: _titleController,
-            textAlign: TextAlign.center,
-            keyboardType: TextInputType.name,
-            maxLines: 2,
-          ),
-          SingleChildScrollView(
-            child: TextField(
+            TextField(
               decoration: const InputDecoration(
                 prefixText: '  body :',
                 label: Text("  Body"),
               ),
               controller: _bodyController,
-              textAlign: TextAlign.center,
+              textAlign: TextAlign.justify,
               keyboardType: TextInputType.name,
               maxLines: null,
             ),
-          ),
 
-          const SizedBox(height: 22),
-          ElevatedButton(
-            onPressed: () {
-              final updated = Model(
-                titel: _titleController.toString().trim(),
-                body: _bodyController.toString().trim(),
-                date: DateTime.now(),
-                iscompleate: false,
-              );
-              widget.onsave(updated);
-              Navigator.of(context).pop();
-            },
-            child: Padding(
-              padding: const EdgeInsets.only(left: 30, right: 30),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Icon(Icons.save),
-                  const SizedBox(width: 7),
-                  Text(
-                    "Save Changes",
-                    style: TextStyle(
-                      color: Theme.of(context).colorScheme.surface,
+            const SizedBox(height: 22),
+            ElevatedButton(
+              onPressed: () {
+                final updated = Model(
+                  titel: _titleController.toString().trim(),
+                  body: _bodyController.toString().trim(),
+                  date: DateTime.now(),
+                  iscompleate: false,
+                );
+                widget.onsave(updated);
+                Navigator.of(context).pop();
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(left: 30, right: 30),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.save),
+                    const SizedBox(width: 7),
+                    Text(
+                      "Save Changes",
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.surface,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

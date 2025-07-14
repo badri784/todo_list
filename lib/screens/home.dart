@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../model/model.dart';
 import '../listview.dart';
+import '../widget/drawer.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -197,13 +198,10 @@ class _HomeState extends State<Home> {
 
   @override
   void dispose() {
-    super.dispose();
     titlecontroler.dispose();
     bodycontroler.dispose();
     datecontroler.dispose();
-    titlecontroler.clear();
-    bodycontroler.clear();
-    datecontroler.clear();
+    super.dispose();
   }
 
   @override
@@ -234,116 +232,118 @@ class _HomeState extends State<Home> {
                 margin: const EdgeInsets.all(13),
                 width: double.infinity,
                 height: 750,
-                child: Column(
-                  children: [
-                    TextField(
-                      controller: titlecontroler,
-                      textAlign: TextAlign.center,
-                      textInputAction: TextInputAction.next,
-                      decoration: const InputDecoration(
-                        labelText: "Add Title",
-                        prefixText: 'Title:',
-                        hintText: "",
-                        hintFadeDuration: Duration(milliseconds: 250),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      TextField(
+                        controller: titlecontroler,
+                        textAlign: TextAlign.center,
+                        textInputAction: TextInputAction.next,
+                        decoration: const InputDecoration(
+                          labelText: "Add Title",
+                          prefixText: 'Title:',
+                          hintText: "",
+                          hintFadeDuration: Duration(milliseconds: 250),
+                        ),
+                        keyboardType: TextInputType.name,
+                        maxLength: 50,
+                        maxLines: null,
                       ),
-                      keyboardType: TextInputType.name,
-                      maxLines: 2,
-                    ),
-                    Flexible(
-                      child: TextField(
+                      TextField(
                         controller: bodycontroler,
                         textAlign: TextAlign.center,
                         textInputAction: TextInputAction.next,
                         decoration: const InputDecoration(
                           labelText: "Add Body",
                           prefixText: 'Body:',
+                          hintText: "body",
                         ),
                         keyboardType: TextInputType.name,
                         maxLines: null,
                       ),
-                    ),
-                    TextField(
-                      controller: datecontroler,
-                      textAlign: TextAlign.center,
-                      textInputAction: TextInputAction.done,
-                      canRequestFocus: false,
-                      decoration: const InputDecoration(
-                        labelText: "Add Date",
-                        prefixText: 'Date:',
-                        hintText: "Enter date",
+                      TextField(
+                        controller: datecontroler,
+                        textAlign: TextAlign.center,
+                        textInputAction: TextInputAction.done,
+                        canRequestFocus: false,
+                        decoration: const InputDecoration(
+                          labelText: "Add Date",
+                          prefixText: 'Date:',
+                          hintText: "Enter date",
+                        ),
+
+                        readOnly: true,
+                        onTap: () async {
+                          final pickedDate = await showDatePicker(
+                            context: context,
+                            initialDate: inintial,
+                            firstDate: firstdate,
+                            lastDate: lastdate,
+                          );
+                          if (pickedDate != null) {
+                            datecontroler.text = dateformat.format(pickedDate);
+                          }
+                        },
                       ),
-
-                      readOnly: true,
-                      onTap: () async {
-                        final pickedDate = await showDatePicker(
-                          context: context,
-                          initialDate: inintial,
-                          firstDate: firstdate,
-                          lastDate: lastdate,
-                        );
-                        if (pickedDate != null) {
-                          datecontroler.text = dateformat.format(pickedDate);
-                        }
-                      },
-                    ),
-                    const SizedBox(height: 20),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        ElevatedButton.icon(
-                          onPressed: () {
-                            if (titlecontroler.text.trim().isEmpty ||
-                                bodycontroler.text.trim().isEmpty) {
-                              showDialog(
-                                context: context,
-                                builder:
-                                    (context) => AlertDialog(
-                                      title: const Text("Error !"),
-                                      content: const Text(
-                                        "please enter a title or body for your todo's",
-                                      ),
-
-                                      actions: [
-                                        IconButton(
-                                          onPressed: () {
-                                            Navigator.of(context).pop();
-                                          },
-                                          icon: const Icon(Icons.cancel),
+                      const SizedBox(height: 20),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton.icon(
+                            onPressed: () {
+                              if (titlecontroler.text.trim().isEmpty ||
+                                  bodycontroler.text.trim().isEmpty) {
+                                showDialog(
+                                  context: context,
+                                  builder:
+                                      (context) => AlertDialog(
+                                        title: const Text("Error !"),
+                                        content: const Text(
+                                          "please enter a title or body for your todo's",
                                         ),
-                                      ],
-                                    ),
-                              );
-                              return;
-                            }
-                            setState(() {
-                              _model.add(
-                                Model(
-                                  titel: titlecontroler.text,
-                                  body: bodycontroler.text,
-                                  date: DateTime.now(),
-                                  iscompleate: false,
-                                ),
-                              );
-                            });
-                            Navigator.of(context).pop();
-                            log(titlecontroler.toString());
-                            log(bodycontroler.toString());
-                            log(datecontroler.toString());
-                          },
-                          icon: const Icon(Icons.save),
-                          label: const Text("Save"),
-                        ),
-                        const SizedBox(width: 35),
-                        ElevatedButton.icon(
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                          icon: const Icon(Icons.cancel),
-                          label: const Text("Cansel"),
-                        ),
-                      ],
-                    ),
-                  ],
+
+                                        actions: [
+                                          IconButton(
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                            icon: const Icon(Icons.cancel),
+                                          ),
+                                        ],
+                                      ),
+                                );
+                                return;
+                              }
+                              setState(() {
+                                _model.add(
+                                  Model(
+                                    titel: titlecontroler.text,
+                                    body: bodycontroler.text,
+                                    date: DateTime.now(),
+                                    iscompleate: false,
+                                  ),
+                                );
+                              });
+                              Navigator.of(context).pop();
+                              log(titlecontroler.toString());
+                              log(bodycontroler.toString());
+                              log(datecontroler.toString());
+                            },
+                            icon: const Icon(Icons.save),
+                            label: const Text("Save"),
+                          ),
+                          const SizedBox(width: 35),
+                          ElevatedButton.icon(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            icon: const Icon(Icons.cancel),
+                            label: const Text("Cansel"),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               );
             },
@@ -351,6 +351,7 @@ class _HomeState extends State<Home> {
         },
         child: const Icon(Icons.add),
       ),
+      drawer: const DrawerWidget(),
       body: Listview(todo: _model),
     );
   }

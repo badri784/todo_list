@@ -13,48 +13,39 @@ class OpenTodo extends StatelessWidget {
         title: Text(
           opentodo.titel,
           style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
-          maxLines: null,
+
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
           textAlign: TextAlign.center,
         ),
-        backgroundColor: Theme.of(context).colorScheme.surface,
+        backgroundColor: Theme.of(context).colorScheme.primary,
         centerTitle: true,
       ),
       body: Container(
+        width: double.infinity,
+        height: double.infinity,
         decoration: BoxDecoration(
           gradient:
               isdark
                   ? const LinearGradient(colors: [Colors.black, Colors.black])
-                  : LinearGradient(
-                    colors: [
-                      Theme.of(context).colorScheme.secondaryFixedDim,
-                      Theme.of(
-                        context,
-                      ).colorScheme.secondaryFixedDim.withOpacity(0.9),
-                      Theme.of(
-                        context,
-                      ).colorScheme.secondaryFixedDim.withOpacity(0.8),
-                      Theme.of(
-                        context,
-                      ).colorScheme.secondaryFixedDim.withOpacity(0.7),
-                    ],
-                  ),
+                  : const LinearGradient(colors: [Colors.white, Colors.white]),
         ),
-        child: Column(
-          children: [
-            InkWell(
-              onLongPress: () {
-                Clipboard.setData(ClipboardData(text: opentodo.body));
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text("To_Do 'Body Copied !"),
-                    padding: EdgeInsets.all(15),
-                  ),
-                );
-              },
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              InkWell(
+                onLongPress: () {
+                  Clipboard.setData(ClipboardData(text: opentodo.body));
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text("To_Do 'Body Copied !"),
+                      padding: EdgeInsets.all(15),
+                    ),
+                  );
+                },
 
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
                   child: Text(
                     opentodo.body,
                     style: TextStyle(
@@ -68,8 +59,9 @@ class OpenTodo extends StatelessWidget {
                   ),
                 ),
               ),
-            ),
-          ],
+              const Divider(),
+            ],
+          ),
         ),
       ),
     );
