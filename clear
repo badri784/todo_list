@@ -1,0 +1,66 @@
+[33mcommit 9409e5a12f425c18a3801d35ed71074944ce26a5[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Ahmed elbadri <badri784@gmail.com>
+Date:   Tue Jul 15 17:09:00 2025 +0200
+
+    0.0
+
+[33mcommit a84c17c6e89c5594cba452ab72d376aa6f55892b[m
+Author: Ahmed elbadri <badri784@gmail.com>
+Date:   Mon Jul 14 15:46:14 2025 +0200
+
+    drawer
+
+[33mcommit 1295dc05d2d2f51d97d8a2f17fd0c4d864a7cedd[m
+Author: Ahmed elbadri <badri784@gmail.com>
+Date:   Mon Jul 14 13:52:14 2025 +0200
+
+    edit some isuse
+
+[33mcommit c364ba5dc2000c22b25a5f100ef425ba3bdd09f9[m
+Author: Ahmed elbadri <badri784@gmail.com>
+Date:   Mon Jul 14 11:55:51 2025 +0200
+
+    add open todo
+
+[33mcommit e20881ae4a5abc62e750d1e5b13445a211e0ead6[m
+Author: Ahmed elbadri <badri784@gmail.com>
+Date:   Sun Jul 13 16:19:59 2025 +0200
+
+    0.0
+
+[33mcommit 206a2cf3a7e50b03773f188f7c656cac618caec8[m
+Author: Ahmed elbadri <badri784@gmail.com>
+Date:   Sun Jul 13 13:53:26 2025 +0200
+
+    add Edit screen
+
+[33mcommit 2b4b75717825a8aed9fcc768a2acc42b2ff8bb0d[m
+Author: Ahmed elbadri <badri784@gmail.com>
+Date:   Thu Jul 10 14:48:09 2025 +0200
+
+    to complete this app
+
+[33mcommit bc9ffe45557e63db9df219e60b79d93f08398102[m
+Author: Ahmed elbadri <badri784@gmail.com>
+Date:   Sun Jul 6 19:31:21 2025 +0200
+
+    0.0
+
+[33mcommit 72f7ffaca55c053a3f163706de468ecb2efb4b8a[m
+Merge: 0bf166c 5b4b5d8
+Author: Ahmed elbadri <badri784@gmail.com>
+Date:   Wed Jun 18 16:05:11 2025 +0200
+
+    Resolve merge conflict in .gitignore
+
+[33mcommit 0bf166c91eb9032f3ac7559ef3529fd4ef873f0b[m
+Author: Ahmed elbadri <badri784@gmail.com>
+Date:   Wed Jun 18 15:59:16 2025 +0200
+
+    first commit
+
+[33mcommit 5b4b5d8ba222aced227f78a693b154479e818f92[m
+Author: Ahmed elbadri <aelbadri23@gmail.com>
+Date:   Wed Jun 18 15:58:15 2025 +0300
+
+    Initial commit
