@@ -27,7 +27,7 @@ class _ListviewState extends State<Listview> {
                 Image.asset('image/data.png'),
                 const SizedBox(height: 7),
                 Text(
-                  "Tap On The Bottom To Add Todo's !",
+                  "Tap On The Botton To Add Todo's !",
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.onSurface,
                     fontSize: 22,

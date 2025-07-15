@@ -5,12 +5,17 @@ class DrawerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final usecolorScheme = Theme.of(context).colorScheme;
     return Drawer(
       backgroundColor: Theme.of(context).colorScheme.onPrimaryFixed,
       semanticLabel: "addition ",
-      child: const Column(
+      child: Column(
         children: [
-          Text("000000000000000000", style: TextStyle(color: Colors.white)),
+          const DrawerHeader(child: Text("addition")),
+          Text(
+            "Hello world it's nice too meet u",
+            style: TextStyle(color: usecolorScheme.surface),
+          ),
         ],
       ),
     );
