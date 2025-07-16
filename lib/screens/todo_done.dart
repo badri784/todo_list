@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo_list/model/model.dart';
+import '../model/model.dart';
 
 class ToDoDone extends StatelessWidget {
   const ToDoDone({super.key, required this.tododone});
@@ -24,6 +24,8 @@ class ToDoDone extends StatelessWidget {
           tododone.isEmpty
               ? Container(
                 color: Colors.white,
+                width: double.infinity,
+                height: double.infinity,
                 child: Text(
                   "No Todo done",
                   style: TextStyle(
@@ -36,9 +38,7 @@ class ToDoDone extends StatelessWidget {
                   ...tododone.map(
                     (item) => Text(
                       item.titel.toString(),
-                      style: TextStyle(
-                        color: Theme.of(context).colorScheme.surface,
-                      ),
+                      style: const TextStyle(color: Colors.white),
                     ),
                   ),
                 ],

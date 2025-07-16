@@ -59,7 +59,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   builder: (context) => ToDoDone(tododone: donelist),
                 ),
               );
-              log(donelist.toString());
+              log(donelist.isNotEmpty.toString());
             },
           ),
         ],
