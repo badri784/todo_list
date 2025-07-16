@@ -23,7 +23,7 @@ class _HomeState extends State<Home> {
       date: DateTime.now(),
     ),
     Model(
-      iscompleate: false,
+      iscompleate: true,
       titel: "How to Start Your App Development Journey?",
       body:
           "Start by learning the basics like Dart and Flutter. Set daily practice goals and build small projects to boost your understanding. Don’t rush—repetition and hands-on coding are the keys to mastery. With time, you'll see real progress and start building great apps on your own!",
@@ -34,21 +34,21 @@ class _HomeState extends State<Home> {
       body:
           "This is a very long body text for a todo item that is intended to test how the UI handles wrapping or overflowing content inside a ListTile. It should either wrap to the next line or be truncated appropriately based on the design.",
       date: DateTime.now(),
-      iscompleate: false,
+      iscompleate: true,
     ),
     Model(
       titel: "UI Check",
       body:
           "Make sure that long descriptions like this one, which might go on for several lines and include detailed instructions, are displayed correctly in both light and dark themes, and that the overall layout remains consistent and readable across different screen sizes.",
       date: DateTime.now(),
-      iscompleate: false,
+      iscompleate: true,
     ),
     Model(
       titel: "Responsive Test",
       body:
           "Sometimes users might enter extremely long notes or descriptions for their todos. This test checks how the application responds to these edge cases, ensuring that the text either wraps correctly or gets truncated with ellipsis if necessary.",
       date: DateTime.now(),
-      iscompleate: false,
+      iscompleate: true,
     ),
     Model(
       titel: "Very Long Body Text for Testing",
@@ -242,8 +242,8 @@ class _HomeState extends State<Home> {
                         decoration: const InputDecoration(
                           labelText: "Add Title",
                           prefixText: 'Title:',
-                          hintText: "",
-                          hintFadeDuration: Duration(milliseconds: 250),
+                          hintText: "title",
+                          hintFadeDuration: Duration(seconds: 1),
                         ),
                         keyboardType: TextInputType.name,
                         maxLength: 50,
@@ -257,6 +257,7 @@ class _HomeState extends State<Home> {
                           labelText: "Add Body",
                           prefixText: 'Body:',
                           hintText: "body",
+                          hintFadeDuration: Duration(seconds: 1),
                         ),
                         keyboardType: TextInputType.name,
                         maxLines: null,
@@ -269,7 +270,6 @@ class _HomeState extends State<Home> {
                         decoration: const InputDecoration(
                           labelText: "Add Date",
                           prefixText: 'Date:',
-                          hintText: "Enter date",
                         ),
 
                         readOnly: true,
@@ -351,7 +351,7 @@ class _HomeState extends State<Home> {
         },
         child: const Icon(Icons.add),
       ),
-      drawer: const DrawerWidget(),
+      drawer: DrawerWidget(modellist: _model),
       body: Listview(todo: _model),
     );
   }
