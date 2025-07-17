@@ -19,14 +19,20 @@ class _DrawerWidgetState extends State<DrawerWidget> {
     bool isdark = Theme.of(context).brightness == Brightness.dark;
 
     return Drawer(
-      backgroundColor: Theme.of(context).colorScheme.surface,
+      backgroundColor:
+          isdark
+              ? usecolorScheme.surface
+              : Theme.of(context).colorScheme.primary,
       semanticLabel: "addition ",
       child: Column(
         children: [
           DrawerHeader(
-            decoration: BoxDecoration(color: usecolorScheme.surface),
+            decoration: BoxDecoration(
+              color: isdark ? usecolorScheme.surface : usecolorScheme.primary,
+            ),
             child: Row(
               children: [
+                const SizedBox(width: 10),
                 const Icon(Icons.settings, size: 40),
                 const SizedBox(width: 7),
                 Text(
@@ -44,7 +50,9 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               "Done Todo ",
               style: TextStyle(
                 color:
-                    isdark ? usecolorScheme.onSurface : usecolorScheme.surface,
+                    isdark
+                        ? usecolorScheme.onSurface
+                        : usecolorScheme.onSurface,
                 fontSize: 20,
               ),
             ),

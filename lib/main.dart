@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isdark = Theme.of(context).brightness == Brightness.dark;
     return MaterialApp(
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
@@ -25,11 +26,16 @@ class MyApp extends StatelessWidget {
             iconColor: MaterialStateProperty.all(
               Theme.of(context).colorScheme.surface,
             ),
+
             backgroundColor: MaterialStateProperty.all(
-              Theme.of(context).colorScheme.primary,
+              isdark
+                  ? Theme.of(context).colorScheme.surface
+                  : Theme.of(context).colorScheme.onSurface,
             ),
             foregroundColor: MaterialStateProperty.all(
-              Theme.of(context).colorScheme.surface,
+              isdark
+                  ? Theme.of(context).colorScheme.onSurface
+                  : Theme.of(context).colorScheme.surface,
             ),
           ),
         ),

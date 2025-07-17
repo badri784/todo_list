@@ -40,7 +40,7 @@ class _ListviewState extends State<Listview> {
         : ListView.builder(
           itemCount: widget.todo.length,
           itemBuilder: (BuildContext context, index) {
-            return Card(
+            return Card.outlined(
               child: Dismissible(
                 key: Key(widget.todo[index].titel),
                 background: Container(
