@@ -43,14 +43,49 @@ class _ListviewState extends State<Listview> {
             return Card.outlined(
               child: Dismissible(
                 key: Key(widget.todo[index].titel),
-                background: Container(
-                  color: Theme.of(context).colorScheme.error,
-                ),
+                background: const Icon(Icons.delete),
                 secondaryBackground: const Icon(Icons.delete),
                 onDismissed:
                     (direction) => setState(() {
                       widget.todo.removeAt(index);
                     }),
+                confirmDismiss:
+                    (direction) => showDialog(
+                      context: context,
+                      builder:
+                          (context) => AlertDialog(
+                            title: const Row(
+                              children: [
+                                Icon(Icons.warning),
+                                SizedBox(width: 7),
+                                const Text("Dalete todo"),
+                              ],
+                            ),
+                            content: const Text(
+                              "Are You Sure To Dalete This Todo?",
+                            ),
+                            actions: [
+                              TextButton.icon(
+                                onPressed: () {
+                                  Navigator.of(context).pop(false);
+                                },
+                                icon: const Icon(Icons.cancel),
+
+                                label: const Text("Cancel"),
+                              ),
+                              TextButton.icon(
+                                onPressed: () {
+                                  Navigator.of(context).pop(true);
+                                },
+                                icon: const Icon(Icons.done),
+
+                                label: const Text("Okay"),
+                              ),
+                            ],
+                          ),
+                    ),
+                behavior: HitTestBehavior.opaque,
+                resizeDuration: const Duration(milliseconds: 750),
 
                 child: ListTile(
                   leading: Checkbox(

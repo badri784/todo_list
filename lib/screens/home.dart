@@ -297,7 +297,13 @@ class _HomeState extends State<Home> {
                                   context: context,
                                   builder:
                                       (context) => AlertDialog(
-                                        title: const Text("Error !"),
+                                        title: const Row(
+                                          children: [
+                                            Icon(Icons.error_outline),
+                                            SizedBox(width: 7),
+                                            const Text("Error!"),
+                                          ],
+                                        ),
                                         content: const Text(
                                           "please enter a title or body for your todo's",
                                         ),
@@ -305,7 +311,7 @@ class _HomeState extends State<Home> {
                                         actions: [
                                           IconButton(
                                             onPressed: () {
-                                              Navigator.of(context).pop();
+                                              Navigator.of(context).pop(false);
                                             },
                                             icon: const Icon(Icons.cancel),
                                           ),

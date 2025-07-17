@@ -51,31 +51,33 @@ class ToDoDone extends StatelessWidget {
                 padding: const EdgeInsets.all(5),
                 height: double.infinity,
                 width: double.infinity,
-                child: Column(
-                  children: [
-                    ...tododone.map(
-                      (item) => Card.outlined(
-                        child: ListTile(
-                          title: Text(
-                            item.titel.toString(),
-                            style: TextStyle(
-                              color: Theme.of(context).colorScheme.onSurface,
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      ...tododone.map(
+                        (item) => Card.outlined(
+                          child: ListTile(
+                            title: Text(
+                              item.titel.toString(),
+                              style: TextStyle(
+                                color: Theme.of(context).colorScheme.onSurface,
+                              ),
+                              textAlign: TextAlign.center,
                             ),
-                            textAlign: TextAlign.center,
-                          ),
-                          trailing: CircleAvatar(
-                            backgroundColor:
-                                isdark
-                                    ? Theme.of(
-                                      context,
-                                    ).colorScheme.onSecondaryFixedVariant
-                                    : Theme.of(context).colorScheme.surface,
-                            child: const Icon(Icons.done),
+                            trailing: CircleAvatar(
+                              backgroundColor:
+                                  isdark
+                                      ? Theme.of(
+                                        context,
+                                      ).colorScheme.onSecondaryFixedVariant
+                                      : Colors.green,
+                              child: const Icon(Icons.done),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
     );

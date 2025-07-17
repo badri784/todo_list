@@ -52,7 +52,7 @@ class _EditSecreenState extends State<EditSecreen> {
               controller: _titleController,
               textAlign: TextAlign.justify,
               keyboardType: TextInputType.name,
-              maxLines: 2,
+              maxLength: 50,
             ),
             TextField(
               decoration: const InputDecoration(
@@ -87,7 +87,10 @@ class _EditSecreenState extends State<EditSecreen> {
                     Text(
                       "Save Changes",
                       style: TextStyle(
-                        color: Theme.of(context).colorScheme.surface,
+                        color:
+                            isdark
+                                ? Theme.of(context).colorScheme.onSurface
+                                : Theme.of(context).colorScheme.surface,
                       ),
                     ),
                   ],

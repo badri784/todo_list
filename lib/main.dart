@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
             backgroundColor: MaterialStateProperty.all(
               isdark
                   ? Theme.of(context).colorScheme.surface
-                  : Theme.of(context).colorScheme.onSurface,
+                  : Theme.of(context).colorScheme.primary,
             ),
             foregroundColor: MaterialStateProperty.all(
               isdark
