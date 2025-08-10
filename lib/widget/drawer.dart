@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:todo_list/model/model.dart';
+import 'package:todo_list/screens/settings_screen.dart';
 import 'package:todo_list/screens/todo_done.dart';
 
 class DrawerWidget extends StatefulWidget {
@@ -33,7 +34,16 @@ class _DrawerWidgetState extends State<DrawerWidget> {
             child: Row(
               children: [
                 const SizedBox(width: 10),
-                const Icon(Icons.settings, size: 40),
+                IconButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (ctx) => const SettingsScreen(),
+                      ),
+                    );
+                  },
+                  icon: const Icon(Icons.settings, size: 50),
+                ),
                 const SizedBox(width: 7),
                 Text(
                   "setings",

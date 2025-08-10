@@ -18,7 +18,6 @@ class OpenTodo extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
           textAlign: TextAlign.center,
         ),
-        backgroundColor: Theme.of(context).colorScheme.surface,
         centerTitle: true,
       ),
       body: Container(

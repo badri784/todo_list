@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_list/screens/open_todo.dart';
 import '../model/model.dart';
 
 class ToDoDone extends StatelessWidget {
@@ -9,18 +10,7 @@ class ToDoDone extends StatelessWidget {
   Widget build(BuildContext context) {
     bool isdark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "ToDo Done",
-          style: TextStyle(
-            color:
-                isdark
-                    ? Theme.of(context).colorScheme.onSurface
-                    : Theme.of(context).colorScheme.onSecondaryFixed,
-          ),
-        ),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: const Text("ToDo Done"), centerTitle: true),
       body:
           tododone.isEmpty
               ? Container(
@@ -73,6 +63,13 @@ class ToDoDone extends StatelessWidget {
                                       : Colors.green,
                               child: const Icon(Icons.done),
                             ),
+                            onTap: () {
+                              Navigator.of(context).pushReplacement(
+                                MaterialPageRoute(
+                                  builder: (ctx) => OpenTodo(opentodo: item),
+                                ),
+                              );
+                            },
                           ),
                         ),
                       ),
