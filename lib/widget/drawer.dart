@@ -23,7 +23,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
       backgroundColor:
           isdark
               ? usecolorScheme.surface
-              : Theme.of(context).colorScheme.primary,
+              : Theme.of(context).colorScheme.onPrimaryContainer,
       semanticLabel: "addition ",
       child: Column(
         children: [

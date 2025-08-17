@@ -210,16 +210,9 @@ class _HomeState extends State<Home> {
     final firstdate = DateTime(now.year - 5, now.month, now.day);
     final lastdate = DateTime(now.year + 2, now.month, now.day);
     final inintial = DateTime.now();
-    bool isdark = Theme.of(context).brightness == Brightness.dark;
+    // bool isdark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("ToDO-List"),
-        centerTitle: true,
-        backgroundColor:
-            isdark
-                ? Theme.of(context).colorScheme.surface
-                : Theme.of(context).colorScheme.primary,
-      ),
+      appBar: AppBar(title: const Text("ToDO-List"), centerTitle: true),
       floatingActionButton: FloatingActionButton(
         tooltip: 'Add ToDo',
         onPressed: () {

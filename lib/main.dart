@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todo_list/statemangment/theme_mode_provider.dart';
@@ -14,49 +12,58 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    bool isdark = Theme.of(context).brightness == Brightness.dark;
     return MaterialApp(
+      // Light theme
       theme: ThemeData(
         brightness: Brightness.light,
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color.fromARGB(255, 3, 5, 92),
+          seedColor: const Color(0xFF244968),
+          brightness: Brightness.light,
         ),
-        appBarTheme: AppBarTheme(
-          shape: const RoundedRectangleBorder(
-            borderRadius: const BorderRadiusGeometry.vertical(
-              bottom: Radius.circular(20),
-            ),
+        appBarTheme: const AppBarTheme(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
           ),
-
-          backgroundColor:
-              isdark
-                  ? Theme.of(context).colorScheme.scrim
-                  : Theme.of(context).colorScheme.primary,
+          backgroundColor: Color(0xFF244968),
+          foregroundColor: Colors.white,
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ButtonStyle(
-            textStyle: MaterialStateProperty.all(const TextStyle(fontSize: 15)),
-            iconSize: MaterialStateProperty.all(24),
-            iconColor: MaterialStateProperty.all(
-              Theme.of(context).colorScheme.surface,
-            ),
-
-            backgroundColor: MaterialStateProperty.all(
-              isdark
-                  ? Theme.of(context).colorScheme.primary
-                  : Theme.of(context).colorScheme.primary,
-            ),
-            foregroundColor: MaterialStateProperty.all(
-              isdark
-                  ? Theme.of(context).colorScheme.onSurface
-                  : Theme.of(context).colorScheme.surface,
-            ),
+          style: ElevatedButton.styleFrom(
+            textStyle: const TextStyle(fontSize: 15),
+            backgroundColor: const Color(0xFF244968),
+            foregroundColor: Colors.white,
           ),
         ),
       ),
-      darkTheme: ThemeData(brightness: Brightness.dark),
+
+      // Dark theme
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFF244968),
+          brightness: Brightness.dark,
+        ),
+        appBarTheme: const AppBarTheme(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
+          ),
+          backgroundColor: Color.fromARGB(255, 28, 42, 53),
+          foregroundColor: Colors.white,
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            textStyle: const TextStyle(fontSize: 15),
+            backgroundColor: const Color.fromARGB(255, 36, 73, 104),
+            foregroundColor: Colors.white,
+          ),
+        ),
+      ),
+      themeAnimationStyle: const AnimationStyle(
+        reverseCurve: Curves.easeInOutCubicEmphasized,
+      ),
+
       themeMode: ref.watch(themeModeProvider),
-      themeAnimationDuration: const Duration(microseconds: 2000),
+      themeAnimationDuration: const Duration(microseconds: 1100),
       themeAnimationCurve: Curves.easeInOutCubic,
       home: const Home(),
     );

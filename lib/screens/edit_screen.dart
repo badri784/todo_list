@@ -35,10 +35,7 @@ class _EditSecreenState extends State<EditSecreen> {
           "Edit ToDo's",
           style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
         ),
-        backgroundColor:
-            isdark
-                ? Theme.of(context).colorScheme.surface
-                : Theme.of(context).colorScheme.primary,
+
         centerTitle: true,
       ),
       body: SingleChildScrollView(

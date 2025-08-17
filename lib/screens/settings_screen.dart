@@ -9,31 +9,22 @@ class SettingsScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final themeMode = ref.watch(themeModeProvider);
-
     return Scaffold(
-      appBar: AppBar(
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadiusGeometry.vertical(
-            bottom: Radius.circular(20),
-          ),
-        ),
-        title: const Text("Settings"),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: const Text("Settings"), centerTitle: true),
       body: Column(
         children: [
-          SwitchListTile(
-            title: const Text("Theme"),
-            subtitle: const Text("Dark Theme"),
-            value: ref.watch(themeModeProvider) == ThemeMode.dark,
-            onChanged: (bool value) {
-              // ignore: invalid_use_of_visible_for_testing_member
-              ref.read(themeModeProvider.notifier).state =
-                  themeMode == ThemeMode.light
-                      ? ThemeMode.dark
-                      : ThemeMode.light;
-            },
+          Card.outlined(
+            child: SwitchListTile(
+              title: const Text("Theme"),
+              isThreeLine: false,
+              autofocus: true,
+              subtitle: const Text("Dark Theme"),
+              contentPadding: const EdgeInsets.only(right: 15, left: 15),
+              value: ref.watch(themeModeProvider) == ThemeMode.dark,
+              onChanged:
+                  (bool value) =>
+                      ref.read(themeModeProvider.notifier).ontoggletheme(),
+            ),
           ),
         ],
       ),
